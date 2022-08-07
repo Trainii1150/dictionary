@@ -36,7 +36,7 @@ namespace dictionary
                 }
                 else
                 {
-                    MessageBox.Show("Please Input all Data");
+                    MessageBox.Show("Please Input Data");
                 }
             }
             catch (Exception ex)
@@ -49,7 +49,8 @@ namespace dictionary
         private void Btn_remove(object sender, EventArgs e)
         {
             string st = Interaction.InputBox("Input key", "Remove");
-            if (MyDic.ContainsKey(st))
+            if(st == "") { return ; }
+            else if (MyDic.ContainsKey(st))
             {
                 MyDic.Remove(st);
                 MessageBox.Show("Key is removed");
@@ -66,7 +67,8 @@ namespace dictionary
         {
 
             string st = Interaction.InputBox("Input key", "Search");
-            if (MyDic.ContainsKey(st))
+            if (st == "") { return ; }
+            else if (MyDic.ContainsKey(st))
             {
                 MessageBox.Show("Value is " + MyDic[st]);
                 showDic();
